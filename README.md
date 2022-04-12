@@ -1,5 +1,22 @@
 # aws-testing
 
+## SAM Local
+- [samlocal](https://github.com/localstack/aws-sam-cli-local)
+
+- install
+  ```powershell
+  pip install aws-sam-cli-local
+  ```
+  - python3.8 だとエラー
+  ```powershell
+  ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.
+
+  We recommend you use --use-feature=2020-resolver to test your packages with the new resolver before it becomes the default.
+
+  flask 1.1.4 requires Jinja2<3.0,>=2.10.1, but you'll have jinja2 3.1.1 which is incompatible.
+  aws-sam-cli 1.46.0 requires typing-extensions==3.10.0.0, but you'll have typing-extensions 4.1.1 which is incompatible.
+  ```
+  - python3.9 で問題ない
 ## SAM Machine Learning
 1. sam init
 ```powershell
