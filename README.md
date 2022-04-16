@@ -1,5 +1,47 @@
 # aws-testing
 
+## CodeBuild
+- [AWS CodeBuild エージェントを使用してビルドをローカルで実行](https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/use-codebuild-agent.html)
+
+- WSLで実行
+  ```bash
+  ./codebuild_build.sh -i public.ecr.aws/codebuild/amazonlinux2-x86_64-standard:3.0 -a ./artifacts -m
+  ```
+- メモ
+  - git bashだとエラーになる
+  ```bash
+  Removing agent-resources_build_1 ... done
+  Removing agent-resources_agent_1 ... done
+  Removing network agent-resources_default
+  Removing volume agent-resources_source_volume
+  Removing volume agent-resources_user_volume
+  Creating network "agent-resources_default" with the default driver
+  Creating volume "agent-resources_source_volume" with local driver
+  Creating volume "agent-resources_user_volume" with local driver
+  Creating agent-resources_agent_1 ... done
+  Creating agent-resources_build_1 ... done
+  Attaching to agent-resources_agent_1, agent-resources_build_1
+  agent_1  | [Container] 2022/04/16 08:56:18 Waiting for agent ping
+  agent_1  | [Container] 2022/04/16 08:56:20 Waiting for DOWNLOAD_SOURCE
+  agent_1  | [Container] 2022/04/16 08:56:21 Phase is DOWNLOAD_SOURCE
+  agent_1  | [Container] 2022/04/16 08:56:21 CODEBUILD_SRC_DIR=/codebuild/output/src261779626/src
+  agent_1  | [Container] 2022/04/16 08:56:21 Phase complete: DOWNLOAD_SOURCE State: FAILED
+  agent_1  | [Container] 2022/04/16 08:56:21 Phase context status code: YAML_FILE_ERROR Message: YAML file does not exist
+  agent_1  | [Container] 2022/04/16 08:56:21 Runtime error (*clienterr.PhaseContextError: YAML file does not exist)
+  agent-resources_build_1 exited with code 11
+  Aborting on container exit...
+  ```
+  - YAMLが見つからないなどのエラーが表示される
+  - パスが`//C/`になっていることが原因っぽい
+  ```
+  docker run ・・・・ -e "ARTIFACTS=//C/xxxxx/・・・"
+  ```
+### HUGOのインストール
+  - amazonlinuxにインストール場合
+    - fedoraの手順
+      - https://gohugo.io/getting-started/installing/#fedora-red-hat-and-centos
+    - https://memorandom.whitepenguins.com/posts/hugo_linux/
+
 ## SAM Local
 - [samlocal](https://github.com/localstack/aws-sam-cli-local)
 

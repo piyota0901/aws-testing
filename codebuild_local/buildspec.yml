@@ -1,0 +1,10 @@
+Version: 0.2
+phases:
+  install:
+    commands:
+      - yum install -y yum-plugin-copr
+      - yum copr enable -y daftaupe/hugo
+      - yum install -y hugo
+  build:
+    commands:
+      - hugo version
