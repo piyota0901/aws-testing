@@ -1,5 +1,13 @@
 # aws-testing
 
+## .devcontainer
+- [公式](https://github.com/microsoft/vscode-dev-containers/tree/main/containers)
+  - docker-compose
+    - https://github.com/microsoft/vscode-dev-containers/tree/main/containers/docker-existing-docker-compose
+
+## Custom-runtime
+- [公式](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtimes-walkthrough.html)
+
 ## CodeBuild
 - [AWS CodeBuild エージェントを使用してビルドをローカルで実行](https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/use-codebuild-agent.html)
 

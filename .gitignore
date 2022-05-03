@@ -1,4 +1,6 @@
 aws-codebuild-docker-images/
+memo.md
+.devcontainer/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
